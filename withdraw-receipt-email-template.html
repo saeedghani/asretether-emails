@@ -10,12 +10,25 @@
         body, table, td {font-family: Arial, sans-serif !important;}
     </style>
     <![endif]-->
+    <style type="text/css">
+        @media only screen and (max-width: 600px) {
+            .button-cell {
+                display: block !important;
+                width: 100% !important;
+                padding-left: 0 !important;
+                padding-bottom: 12px !important;
+            }
+            .button-cell:last-child {
+                padding-bottom: 0 !important;
+            }
+        }
+    </style>
 </head>
 <body style="margin: 0; padding: 0; background-color: #f5f5f5; font-family: 'Segoe UI', Tahoma, Arial, sans-serif;">
     <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="background-color: #f5f5f5;">
         <tr>
             <td align="center" style="padding: 20px 0;">
-                <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="600" style="max-width: 600px; background-color: #ffffff; border-radius: 24px; overflow: hidden; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                <table role="presentation" cellspacing="0" cellpadding="0" border="0" style="max-width: 600px; background-color: #ffffff; border-radius: 24px; overflow: hidden; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
                     
                     <!-- Header -->
                     <tr>
@@ -166,10 +179,10 @@
                             <!-- Action Buttons -->
                             <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="padding-bottom: 24px;">
                                 <tr>
-                                    <td align="center" style="width: 50%; padding-left: 8px;">
+                                    <td align="center" class="button-cell" style="width: 50%; padding-left: 8px;">
                                         <a href="#" style="display: block; background-color: #00CC5D; color: #000000; text-decoration: none; padding: 12px 32px; border-radius: 8px; font-size: 14px; font-weight: 500; white-space: nowrap;">تاریخچه تراکنش‌ها</a>
                                     </td>
-                                    <td align="center" style="width: 50%;">
+                                    <td align="center" class="button-cell" style="width: 50%;">
                                         <a href="#" style="display: block; background-color: #ffffff; color: #000000; text-decoration: none; padding: 10px 32px; border-radius: 8px; font-size: 14px; font-weight: 500; border: 2px solid #E5E7EB; white-space: nowrap;">مشاهده تراکنش در مرورگر بلاکچین</a>
                                     </td>
                                 </tr>
