@@ -5,6 +5,55 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>درخواست برداشت</title>
+    <style type="text/css">
+        /* Mobile address formatting - shows first 6 chars...last 5 chars on mobile */
+        .address-container {
+            display: inline-block;
+            max-width: 100%;
+        }
+        .address-full {
+            display: inline;
+        }
+        .address-start,
+        .address-end {
+            display: none;
+        }
+        .address-ellipsis {
+            display: none;
+        }
+        @media only screen and (max-width: 600px) {
+            .address-full {
+                display: none;
+            }
+            .address-start,
+            .address-end {
+                display: inline;
+            }
+            .address-ellipsis {
+                display: inline;
+            }
+        }
+    </style>
+    <!--
+    Server-side function to format address:
+    const formatLongString = (str: string, n = 6): string => {
+        const m = 5;
+        return str && str?.length > n + m
+            ? `${str?.slice(0, n)}...${str?.slice(str?.length - m)}`
+            : str;
+    };
+    
+    Usage when generating email:
+    - destinationAddress: full address (e.g., "0XU8347JHH04985JPAWE4IPSDCAF")
+    - destinationAddressStart: first 6 characters (e.g., "0XU834")
+    - destinationAddressEnd: last 5 characters (e.g., "SDCAF")
+    
+    Example:
+    const addr = "0XU8347JHH04985JPAWE4IPSDCAF";
+    const formatted = formatLongString(addr); // "0XU834...SDCAF"
+    const start = addr.slice(0, 6); // "0XU834"
+    const end = addr.slice(addr.length - 5); // "SDCAF"
+    -->
     <!--[if mso]>
     <style type="text/css">
         body, table, td {font-family: Arial, sans-serif !important;}
@@ -85,7 +134,12 @@
                                                                 <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
                                                                     <tr>
                                                                         <td align="right" style="font-size: 16px; color: #6C6C6C;">آدرس مقصد</td>
-                                                                        <td align="left" style="font-size: 16px; font-weight: 500; color: #000000;">0XU8347JHH04985JPAWE4IPSDCAF</td>
+                                                                        <td align="left" style="font-size: 16px; font-weight: 500; color: #000000;">
+                                                                            <span class="address-container">
+                                                                                <span class="address-full">{{destinationAddress}}</span>
+                                                                                <span class="address-start">{{destinationAddressStart}}</span><span class="address-ellipsis">...</span><span class="address-end">{{destinationAddressEnd}}</span>
+                                                                            </span>
+                                                                        </td>
                                                                     </tr>
                                                                 </table>
                                                             </td>
